@@ -8,14 +8,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import atakandroid.hrms.business.abstracts.UserService;
+import atakandroid.hrms.entities.concretes.User;
 
 @RestController
 @RequestMapping("/api/users")
 public class UsersController {
 
-	public UsersController() {
+	@Autowired
+	private UserService userService;
+	
+	public UsersController(UserService userService) {
 		
+		this.userService=userService;
 	}
 	
+	@GetMapping("/getall")
+	public List<User> getAll(){
+		
+		return this.userService.getAll();
+	}
 
 }
