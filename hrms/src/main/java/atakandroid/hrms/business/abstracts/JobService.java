@@ -7,4 +7,5 @@ import atakandroid.hrms.entities.concretes.Job;
 public interface JobService {
 
 	List<Job> getAll();
+	void add(Job job);
 }

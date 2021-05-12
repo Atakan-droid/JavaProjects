@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.sun.net.httpserver.Authenticator.Result;
 
 import atakandroid.hrms.business.abstracts.JobService;
 import atakandroid.hrms.entities.concretes.Job;
@@ -28,6 +31,12 @@ public class JobsController {
 	public List<Job> getAll(){
 		
 		return jobService.getAll();
+	}
+	@PostMapping("/add")
+	public void add(Job job){
+		
+		jobService.add(job);
+		
 	}
 	
 

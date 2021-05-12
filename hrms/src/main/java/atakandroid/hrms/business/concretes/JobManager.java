@@ -23,5 +23,11 @@ public class JobManager implements JobService {
 		
 		return this.jobdao.findAll();
 	}
+	@Override
+	public void add(Job job) {
+		
+		this.jobdao.save(job);
+		
+	}
 
 }
