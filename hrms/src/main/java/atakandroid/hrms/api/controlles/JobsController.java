@@ -35,7 +35,8 @@ public class JobsController {
 	@PostMapping("/add")
 	public void add(Job job){
 		
-		jobService.add(job);
+		
+		this.jobService.add(job);
 		
 	}
 	
