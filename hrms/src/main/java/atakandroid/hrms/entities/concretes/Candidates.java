@@ -31,5 +31,5 @@ public class Candidates {
 	@Column(name = "identification_number")
 	private String identification_number;
 	@Column(name = "birth_date")
-	private java.util.Date birth_date;
+	private Date birth_date;
 }
