@@ -4,10 +4,10 @@ import java.util.List;
 
 import atakandroid.hrms.core.utilities.results.DataResult;
 import atakandroid.hrms.core.utilities.results.Result;
-import atakandroid.hrms.entities.concretes.User;
+import atakandroid.hrms.entities.concretes.Employers;
 
-public interface UserService {
+public interface EmployerService {
 
-	DataResult<List<User>> getAll();
-	Result add(User user);
+	DataResult<List<Employers>> getAll();
+	Result add(Employers employer);
 }

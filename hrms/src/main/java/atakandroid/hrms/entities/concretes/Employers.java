@@ -1,5 +1,6 @@
 package atakandroid.hrms.entities.concretes;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,18 +14,19 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name="users")
+@Table(name="employers")
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Employers {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	@Column(name = "email")
-	private String email;
-	@Column(name = "password")
-	private String password;
+	@Column(name = "company_name")
+	private String companyName;
+	@Column(name = "web_address")
+	private String webAddress;
+	
 }
 

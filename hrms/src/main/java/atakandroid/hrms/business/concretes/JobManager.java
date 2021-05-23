@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import atakandroid.hrms.business.abstracts.JobService;
+import atakandroid.hrms.core.utilities.results.DataResult;
+import atakandroid.hrms.core.utilities.results.Result;
+import atakandroid.hrms.core.utilities.results.SuccessDataResult;
+import atakandroid.hrms.core.utilities.results.SuccessResult;
 import atakandroid.hrms.dataAccess.abstracts.JobDao;
 import atakandroid.hrms.entities.concretes.Job;
 
@@ -19,14 +23,15 @@ public class JobManager implements JobService {
 		this.jobdao=jobdao;
 	}
 	@Override
-	public List<Job> getAll() {
+	public DataResult<List<Job>> getAll() {
 		
-		return this.jobdao.findAll();
+		return new SuccessDataResult<List<Job>>( this.jobdao.findAll(),"İşler Getirildi");
 	}
 	@Override
-	public void add(Job job) {
+	public Result add(Job job) {
 		
 		this.jobdao.save(job);
+	 return new SuccessResult("İş kaydedildi");
 		
 	}
 

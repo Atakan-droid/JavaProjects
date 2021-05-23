@@ -9,37 +9,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import atakandroid.hrms.business.abstracts.JobService;
+import atakandroid.hrms.business.abstracts.EmployerService;
 import atakandroid.hrms.core.utilities.results.DataResult;
 import atakandroid.hrms.core.utilities.results.ErrorDataResult;
 import atakandroid.hrms.core.utilities.results.ErrorResult;
 import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.core.utilities.results.SuccessDataResult;
 import atakandroid.hrms.core.utilities.results.SuccessResult;
-import atakandroid.hrms.entities.concretes.Job;
+import atakandroid.hrms.entities.concretes.Employers;
 
 @RestController
-@RequestMapping("/api/jobs")
-public class JobsController {
+@RequestMapping("/api/employers")
+public class EmployersController {
 
 	@Autowired
-	private JobService jobService;
+	private EmployerService employerService;
 
-	public JobsController(JobService jobService) {
-		this.jobService = jobService;
+	public EmployersController(EmployerService employerService) {
+		this.employerService = employerService;
 
 	}
 
 	@GetMapping("/getall")
-	public DataResult<List<Job>> getAll() {
+	public DataResult<List<Employers>> getAll() {
 
-		return this.jobService.getAll();
+		return this.employerService.getAll();
+
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody Job job) {
+	public Result add(@RequestBody Employers employer) {
 
-		return this.jobService.add(job);
+		return this.employerService.add(employer);
+
 	}
 
 }
