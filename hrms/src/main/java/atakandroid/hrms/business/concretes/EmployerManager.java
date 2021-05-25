@@ -18,20 +18,22 @@ public class EmployerManager implements EmployerService {
 
 	@Autowired
 	private EmployersDao employerdao;
-	
+
 	public EmployerManager(EmployersDao employerdao) {
-		this.employerdao=employerdao;
+		this.employerdao = employerdao;
 	}
+
 	@Override
 	public DataResult<List<Employers>> getAll() {
-		
-		return new SuccessDataResult<List<Employers>>( this.employerdao.findAll(),"İş verenler getirildi");
+
+		return new SuccessDataResult<List<Employers>>(this.employerdao.findAll(), "İş verenler getirildi");
 	}
 
 	@Override
 	public Result add(Employers employer) {
-		this.employerdao.save(employer);
-		 return new SuccessResult("İş veren kaydedildi");
-	}
 
+		this.employerdao.save(employer);
+		return new SuccessResult("İş veren kullanıcı sisteme eklendi");
+
+	}
 }

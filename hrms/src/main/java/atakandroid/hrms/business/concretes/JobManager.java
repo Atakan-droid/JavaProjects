@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import atakandroid.hrms.business.abstracts.JobService;
 import atakandroid.hrms.core.utilities.results.DataResult;
+import atakandroid.hrms.core.utilities.results.ErrorResult;
 import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.core.utilities.results.SuccessDataResult;
 import atakandroid.hrms.core.utilities.results.SuccessResult;
@@ -29,9 +30,14 @@ public class JobManager implements JobService {
 	}
 	@Override
 	public Result add(Job job) {
+		try {
+			this.jobdao.save(job);
+			return new SuccessResult("İş kaydedildi");
+		}catch (Exception e) {
+			return new ErrorResult("Sistemde aynı isime sahip bir pozisyon mevcut");
+		}
 		
-		this.jobdao.save(job);
-	 return new SuccessResult("İş kaydedildi");
+	
 		
 	}
 
