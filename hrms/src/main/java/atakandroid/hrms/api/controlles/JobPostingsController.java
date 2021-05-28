@@ -32,6 +32,7 @@ public class JobPostingsController {
 		return this.jobPostingService.getAll();
 	}
 
+	
 	@PostMapping("/add")
 	public Result add(@RequestBody JobPosting jobPosting) {
 		return this.jobPostingService.add(jobPosting);
