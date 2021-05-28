@@ -2,9 +2,9 @@ package atakandroid.hrms.dataAccess.abstracts;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import atakandroid.hrms.entities.concretes.Employers;
+import atakandroid.hrms.entities.concretes.Employer;
 
-public interface EmployersDao extends JpaRepository<Employers, Integer> {
+public interface EmployersDao extends JpaRepository<Employer, Integer> {
 
 }
 

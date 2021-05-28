@@ -16,7 +16,7 @@ import atakandroid.hrms.core.utilities.results.ErrorResult;
 import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.core.utilities.results.SuccessDataResult;
 import atakandroid.hrms.core.utilities.results.SuccessResult;
-import atakandroid.hrms.entities.concretes.Employers;
+import atakandroid.hrms.entities.concretes.Employer;
 
 @RestController
 @RequestMapping("/api/employers")
@@ -31,14 +31,14 @@ public class EmployersController {
 	}
 
 	@GetMapping("/getall")
-	public DataResult<List<Employers>> getAll() {
+	public DataResult<List<Employer>> getAll() {
 
 		return this.employerService.getAll();
 
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody Employers employer) {
+	public Result add(@RequestBody Employer employer) {
 
 		return this.employerService.add(employer);
 

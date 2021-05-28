@@ -1,13 +1,12 @@
 package atakandroid.hrms.entities.concretes;
 
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -16,20 +15,21 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name="employers")
+@Table(name="candidates")
 @AllArgsConstructor
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Employers {
+public class Candidate {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	@Column(name = "company_name")
-	private String companyName;
-	@Column(name = "web_address")
-	private String webAddress;
-	
+	@Column(name = "first_name")
+	private String first_name;
+	@Column(name = "last_name")
+	private String last_name;
+	@Column(name = "identification_number")
+	private String identification_number;
+	@Column(name = "birth_date")
+	private Date birth_date;
 }
-

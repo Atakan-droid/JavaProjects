@@ -7,34 +7,33 @@ import org.springframework.stereotype.Service;
 
 import atakandroid.hrms.business.abstracts.CandidatesService;
 import atakandroid.hrms.core.services.MernisCheckService;
-import atakandroid.hrms.core.utilities.EmailValidator;
 import atakandroid.hrms.core.utilities.results.DataResult;
 import atakandroid.hrms.core.utilities.results.ErrorResult;
 import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.core.utilities.results.SuccessDataResult;
 import atakandroid.hrms.core.utilities.results.SuccessResult;
 import atakandroid.hrms.dataAccess.abstracts.CandidatesDao;
-import atakandroid.hrms.entities.concretes.Candidates;
+import atakandroid.hrms.entities.concretes.Candidate;
 
 @Service
 public class CandidateManager implements CandidatesService {
 
 	
 	private CandidatesDao candidatedao;
-	private MernisCheckService<Candidates> mernisCheckService;
+	private MernisCheckService<Candidate> mernisCheckService;
 	@Autowired
-	public CandidateManager(CandidatesDao candidatedao, MernisCheckService<Candidates> mernisCheckService) {
+	public CandidateManager(CandidatesDao candidatedao, MernisCheckService<Candidate> mernisCheckService) {
 		this.candidatedao = candidatedao;
 		this.mernisCheckService = mernisCheckService;
 	}
 
 	@Override
-	public DataResult<List<Candidates>> getAll() {
-		return new SuccessDataResult<List<Candidates>>(this.candidatedao.findAll(), "İş arayanlar Getirildi");
+	public DataResult<List<Candidate>> getAll() {
+		return new SuccessDataResult<List<Candidate>>(this.candidatedao.findAll(), "İş arayanlar Getirildi");
 	}
 
 	@Override
-	public Result add(Candidates candidates) {
+	public Result add(Candidate candidates) {
 
 		if (!mernisCheckService.isMernis(candidates)) {
 			return new ErrorResult("Kimlik numarası hatalı !");
@@ -43,7 +42,9 @@ public class CandidateManager implements CandidatesService {
 			return new SuccessResult(
 					" İş arayan kullanıcı sisteme eklendi.");
 		}
+	
 
 	}
 
 }
+

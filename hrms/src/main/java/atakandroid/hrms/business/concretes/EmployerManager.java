@@ -11,7 +11,7 @@ import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.core.utilities.results.SuccessDataResult;
 import atakandroid.hrms.core.utilities.results.SuccessResult;
 import atakandroid.hrms.dataAccess.abstracts.EmployersDao;
-import atakandroid.hrms.entities.concretes.Employers;
+import atakandroid.hrms.entities.concretes.Employer;
 
 @Service
 public class EmployerManager implements EmployerService {
@@ -24,13 +24,12 @@ public class EmployerManager implements EmployerService {
 	}
 
 	@Override
-	public DataResult<List<Employers>> getAll() {
+	public DataResult<List<Employer>> getAll() {
 
-		return new SuccessDataResult<List<Employers>>(this.employerdao.findAll(), "İş verenler getirildi");
+		return new SuccessDataResult<List<Employer>>(this.employerdao.findAll(), "İş verenler getirildi");
 	}
-
 	@Override
-	public Result add(Employers employer) {
+	public Result add(Employer employer) {
 
 		this.employerdao.save(employer);
 		return new SuccessResult("İş veren kullanıcı sisteme eklendi");
