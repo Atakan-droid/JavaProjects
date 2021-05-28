@@ -8,9 +8,15 @@ import atakandroid.hrms.entities.concretes.JobPosting;
 
 public interface JobPostingService {
 
-	DataResult<List<JobPosting>> getByEmployers_EmployerId(int employerId);
+	DataResult<List<JobPosting>> getActivesByEmployers_EmployerId(int employerId);
+	
+	DataResult<List<JobPosting>> getAllActives();
+	
+	DataResult<List<JobPosting>> getAllActivesDateSorted();
 	
 	DataResult<List<JobPosting>> getAll();
 	
 	Result add(JobPosting jobPosting);
+	
+	Result updateStatus(int jobPostingId);
 }

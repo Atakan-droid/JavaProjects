@@ -38,10 +38,28 @@ public class JobPostingsController {
 		return this.jobPostingService.add(jobPosting);
 	}
 
-	@GetMapping("/getbtemployerid")
-	public DataResult<List<JobPosting>> getByEmployerId(int employerId) {
+	@GetMapping("/getactivesbyemployerid")
+	public DataResult<List<JobPosting>> getActivesByEmployerId(int employerId) {
 
-		return this.jobPostingService.getByEmployers_EmployerId(employerId);
+		return this.jobPostingService.getActivesByEmployers_EmployerId(employerId);
+
+	}
+	@GetMapping("/getactivejobpositions")
+	public DataResult<List<JobPosting>> getActiveJobPositions() {
+
+		return this.jobPostingService.getAllActives();
+
+	}
+	@GetMapping("/getsorteddate")
+	public DataResult<List<JobPosting>> getSortedDate() {
+
+		return this.jobPostingService.getAllActivesDateSorted();
+
+	}
+	@PostMapping("/chancestatus")
+	public Result updateStatus(int jobPostingId) {
+
+		return this.jobPostingService.updateStatus(jobPostingId);
 
 	}
 

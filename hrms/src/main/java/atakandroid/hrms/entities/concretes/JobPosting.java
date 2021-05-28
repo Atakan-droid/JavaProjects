@@ -40,7 +40,7 @@ public class JobPosting {
 	@Column(name = "entry")
 	private String entry;
 	@Column(name = "status")
-	private boolean isActive;
+	private boolean status;
 	
 	@ManyToOne
 	@JoinColumn(name = "job_id")
