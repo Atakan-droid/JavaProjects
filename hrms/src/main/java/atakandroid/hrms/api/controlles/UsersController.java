@@ -16,7 +16,7 @@ import atakandroid.hrms.core.utilities.results.ErrorResult;
 import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.core.utilities.results.SuccessDataResult;
 import atakandroid.hrms.core.utilities.results.SuccessResult;
-import atakandroid.hrms.entities.concretes.Candidates;
+import atakandroid.hrms.entities.concretes.Candidate;
 import atakandroid.hrms.entities.concretes.User;
 
 @RestController

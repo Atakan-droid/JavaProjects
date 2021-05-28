@@ -16,7 +16,7 @@ import atakandroid.hrms.core.utilities.results.ErrorResult;
 import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.core.utilities.results.SuccessDataResult;
 import atakandroid.hrms.core.utilities.results.SuccessResult;
-import atakandroid.hrms.entities.concretes.Candidates;
+import atakandroid.hrms.entities.concretes.Candidate;
 
 @RestController
 @RequestMapping("/api/candidates")
@@ -31,14 +31,14 @@ public class CandidatesController {
 	}
 
 	@GetMapping("/getall")
-	public DataResult<List<Candidates>> getAll() {
+	public DataResult<List<Candidate>> getAll() {
 
 		return this.candidatesService.getAll();
 
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody Candidates candidates) {
+	public Result add(@RequestBody Candidate candidates) {
 
 		return this.candidatesService.add(candidates);
 
