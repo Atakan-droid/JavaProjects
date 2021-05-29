@@ -35,9 +35,11 @@ public class CandidateManager implements CandidatesService {
 	@Override
 	public Result add(Candidate candidates) {
 
+		
 		if (!mernisCheckService.isMernis(candidates)) {
 			return new ErrorResult("Kimlik numarası hatalı !");
 		} else {
+			
 			this.candidatedao.save(candidates);
 			return new SuccessResult(
 					" İş arayan kullanıcı sisteme eklendi.");

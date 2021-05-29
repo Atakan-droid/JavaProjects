@@ -29,7 +29,7 @@ public class Employer {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "employer_id")
 	private int employerId;
 	@Column(name = "company_name")
 	private String companyName;
