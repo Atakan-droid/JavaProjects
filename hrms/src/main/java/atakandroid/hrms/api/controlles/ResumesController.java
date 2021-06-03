@@ -12,6 +12,7 @@ import atakandroid.hrms.business.abstracts.ResumeService;
 import atakandroid.hrms.core.utilities.results.DataResult;
 import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.entities.concretes.Resume;
+import atakandroid.hrms.entities.dtos.ResumeAddDto;
 
 @RestController
 @RequestMapping("/api/resumes")
@@ -31,7 +32,7 @@ public class ResumesController {
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody Resume resume) {
+	public Result add(@RequestBody ResumeAddDto resume) {
 
 		return this.resumeService.add(resume);
 

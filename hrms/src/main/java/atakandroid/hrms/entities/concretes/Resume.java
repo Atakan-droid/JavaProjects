@@ -2,8 +2,10 @@ package atakandroid.hrms.entities.concretes;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -57,15 +61,23 @@ public class Resume {
 	@Column(name = "photo")
 	private String photo;
 	
-	@OneToMany(mappedBy = "resume")
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="resume_techs",joinColumns = {@JoinColumn(name="resume_id")} 
+	,inverseJoinColumns = {@JoinColumn(name="technology_id")})
 	private List<ResumeTechnology> technologies;
 	
-	@OneToMany(mappedBy = "resume")
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="resume_languages",joinColumns = {@JoinColumn(name="resume_id")} 
+	,inverseJoinColumns = {@JoinColumn(name="resume_language_id")})
 	private List<ResumeLanguage> languages;
 	
-	@OneToMany(mappedBy = "resume")
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="resume_edus",joinColumns = {@JoinColumn(name="resume_id")} 
+	,inverseJoinColumns = {@JoinColumn(name="resume_edu_id")})
 	private List<ResumeEducation> educations;
 	
-	@OneToMany(mappedBy = "resume")
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="resume_job_experience",joinColumns = {@JoinColumn(name="resume_id")} 
+	,inverseJoinColumns = {@JoinColumn(name="job_experience_id")})
 	private List<ResumeJobExperience> jobExperiences;
 }
