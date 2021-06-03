@@ -44,7 +44,7 @@ public class JobPosting {
 	
 	@ManyToOne
 	@JoinColumn(name = "job_id")
-	private Job job;
+	private JobPosition job;
 	
 	@ManyToOne
 	@JoinColumn(name = "city_id")

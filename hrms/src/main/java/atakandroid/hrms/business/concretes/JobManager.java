@@ -12,7 +12,7 @@ import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.core.utilities.results.SuccessDataResult;
 import atakandroid.hrms.core.utilities.results.SuccessResult;
 import atakandroid.hrms.dataAccess.abstracts.JobDao;
-import atakandroid.hrms.entities.concretes.Job;
+import atakandroid.hrms.entities.concretes.JobPosition;
 
 @Service
 public class JobManager implements JobService {
@@ -24,12 +24,12 @@ public class JobManager implements JobService {
 		this.jobdao=jobdao;
 	}
 	@Override
-	public DataResult<List<Job>> getAll() {
+	public DataResult<List<JobPosition>> getAll() {
 		
-		return new SuccessDataResult<List<Job>>( this.jobdao.findAll(),"İşler Getirildi");
+		return new SuccessDataResult<List<JobPosition>>( this.jobdao.findAll(),"İşler Getirildi");
 	}
 	@Override
-	public Result add(Job job) {
+	public Result add(JobPosition job) {
 		try {
 			this.jobdao.save(job);
 			return new SuccessResult("İş kaydedildi");

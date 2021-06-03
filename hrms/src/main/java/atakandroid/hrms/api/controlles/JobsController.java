@@ -16,7 +16,7 @@ import atakandroid.hrms.core.utilities.results.ErrorResult;
 import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.core.utilities.results.SuccessDataResult;
 import atakandroid.hrms.core.utilities.results.SuccessResult;
-import atakandroid.hrms.entities.concretes.Job;
+import atakandroid.hrms.entities.concretes.JobPosition;
 
 @RestController
 @RequestMapping("/api/jobs")
@@ -31,13 +31,13 @@ public class JobsController {
 	}
 
 	@GetMapping("/getall")
-	public DataResult<List<Job>> getAll() {
+	public DataResult<List<JobPosition>> getAll() {
 
 		return this.jobService.getAll();
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody Job job) {
+	public Result add(@RequestBody JobPosition job) {
 
 		return this.jobService.add(job);
 	}

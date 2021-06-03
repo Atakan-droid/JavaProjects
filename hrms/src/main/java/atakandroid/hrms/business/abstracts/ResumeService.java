@@ -4,10 +4,11 @@ import java.util.List;
 
 import atakandroid.hrms.core.utilities.results.DataResult;
 import atakandroid.hrms.core.utilities.results.Result;
-import atakandroid.hrms.entities.concretes.JobPosition;
+import atakandroid.hrms.entities.concretes.Resume;
 
-public interface JobService {
+public interface ResumeService {
 
-	DataResult<List<JobPosition>> getAll();
-	Result add(JobPosition job);
+	DataResult<List<Resume>> getAll();
+	
+	Result add(Resume resume);
 }

@@ -11,7 +11,7 @@ import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.core.utilities.results.SuccessDataResult;
 import atakandroid.hrms.core.utilities.results.SuccessResult;
 import atakandroid.hrms.dataAccess.abstracts.UserDao;
-import atakandroid.hrms.entities.concretes.Job;
+import atakandroid.hrms.entities.concretes.JobPosition;
 import atakandroid.hrms.entities.concretes.User;
 
 @Service

@@ -8,8 +8,16 @@ import atakandroid.hrms.entities.concretes.Candidate;
 public class MernisService implements MernisCheckService<Candidate> {
 
 	@Override
-	public boolean isMernis(Candidate candidate) {
-		return candidate.getIdentification_number().length()==11;
+	public boolean isMernis(Candidate entity) {
+		return entity.getIdentification_number().length()==11;
 	}
+
+	@Override
+	public boolean isPasswordCorrect(Candidate entity) {
+
+		return false;
+	}
+
+	
 
 }
