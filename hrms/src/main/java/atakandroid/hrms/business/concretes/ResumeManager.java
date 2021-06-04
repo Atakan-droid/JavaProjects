@@ -3,6 +3,7 @@ package atakandroid.hrms.business.concretes;
 import java.io.IOException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,6 +22,7 @@ public class ResumeManager implements ResumeService {
 
 	private ResumeDao resumeDao;
 	
+	@Autowired
 	public ResumeManager(ResumeDao resumeDao) {
 		super();
 		this.resumeDao=resumeDao;
@@ -49,9 +51,9 @@ public class ResumeManager implements ResumeService {
 	}
 
 	@Override
-	public Result add(ResumeAddDto resumeAddDto) {
-		// TODO Auto-generated method stub
-		return null;
+	public Result add(Resume resume) {
+		this.resumeDao.save(resume);
+		return new SuccessResult("Öz geçmiş Eklendi");
 	}
 
 	@Override

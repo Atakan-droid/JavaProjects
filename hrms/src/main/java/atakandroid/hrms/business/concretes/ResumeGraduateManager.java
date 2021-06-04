@@ -2,6 +2,7 @@ package atakandroid.hrms.business.concretes;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import atakandroid.hrms.business.abstracts.ResumeGraduateService;
@@ -16,6 +17,7 @@ import atakandroid.hrms.entities.concretes.Graduate;
 public class ResumeGraduateManager implements ResumeGraduateService {
 
 	private ResumeGraduateDao resumeGraduateDao;
+	@Autowired
 	public ResumeGraduateManager(ResumeGraduateDao resumeGraduateDao) {
 		this.resumeGraduateDao=resumeGraduateDao;
 	}
@@ -30,6 +32,26 @@ public class ResumeGraduateManager implements ResumeGraduateService {
 
 		this.resumeGraduateDao.save(graduate);
 		return new SuccessResult("Mezuniyet Türü Eklendi");
+	}
+	@Override
+	public Result update(Graduate graduate) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Result delete(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public DataResult<Graduate> getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public DataResult<List<Graduate>> getAllByResume_Id(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

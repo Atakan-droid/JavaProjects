@@ -2,6 +2,7 @@ package atakandroid.hrms.api.controlles;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,14 +13,13 @@ import atakandroid.hrms.business.abstracts.ResumeService;
 import atakandroid.hrms.core.utilities.results.DataResult;
 import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.entities.concretes.Resume;
-import atakandroid.hrms.entities.dtos.ResumeAddDto;
 
 @RestController
 @RequestMapping("/api/resumes")
 public class ResumesController {
 
 	private ResumeService resumeService;
-	
+	@Autowired
 	public ResumesController(ResumeService resumeService) {
 		super();
 		this.resumeService=resumeService;
@@ -32,7 +32,7 @@ public class ResumesController {
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody ResumeAddDto resume) {
+	public Result add(@RequestBody Resume resume) {
 
 		return this.resumeService.add(resume);
 

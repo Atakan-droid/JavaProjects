@@ -23,7 +23,7 @@ public class Graduate {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private int İd;
+	private int id;
 	
 	@Column(name = "graduate_name")
 	@NotBlank(message="Boş Geçilemez")

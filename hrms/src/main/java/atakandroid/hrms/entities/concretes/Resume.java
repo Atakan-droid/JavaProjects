@@ -19,6 +19,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,8 +35,9 @@ public class Resume {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private int İd;
+	private int id;
 	
+	@JsonIgnore
 	@ManyToOne(targetEntity = Candidate.class,fetch = FetchType.LAZY)
 	@JoinColumn(name = "candidate_id",referencedColumnName = "candidate_id",nullable = false)
 	private Candidate candidate;
@@ -49,6 +52,7 @@ public class Resume {
 	private String description;
 	
 	
+	@JsonIgnore
 	@Column(name = "created_date")
 	private LocalDate createdDate=LocalDate.now();
 	
@@ -58,13 +62,18 @@ public class Resume {
 	@Column(name = "is_active")
 	private boolean isActive=true;
 	
-	@Column(name = "photo")
-	private String photo;
+	
+	
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name="resume_techs",joinColumns = {@JoinColumn(name="resume_id")} 
 	,inverseJoinColumns = {@JoinColumn(name="technology_id")})
 	private List<ResumeTechnology> technologies;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="resume_images",joinColumns = {@JoinColumn(name="resume_id")} 
+	,inverseJoinColumns = {@JoinColumn(name="image_id")})
+	private List<ResumeImage> photos;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name="resume_languages",joinColumns = {@JoinColumn(name="resume_id")} 

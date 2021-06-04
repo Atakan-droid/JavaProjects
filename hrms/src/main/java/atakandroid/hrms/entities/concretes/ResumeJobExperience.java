@@ -28,7 +28,7 @@ public class ResumeJobExperience {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private int İd;
+	private int id;
 	
 	@ManyToOne(targetEntity = Resume.class)
 	@JoinColumn(name="resume_id")
