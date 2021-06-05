@@ -33,14 +33,13 @@ public class ResumeJobExperience {
 	@Column(name="id")
 	private int id;
 	
+	@ManyToOne
 	@JsonIgnore
-	@ManyToOne(targetEntity = Resume.class)
 	@JoinColumn(name="resume_id")
 	private Resume resume;
 	
-	@ManyToOne(targetEntity = Graduate.class,fetch = FetchType.LAZY)
-	@JoinColumn(name = "job_position_id",referencedColumnName = "id",nullable = false)
-	private JobPosition jobPosition;
+	@Column(name="job_position_id")
+	private int jobPositionId;
 	
 	@Column(name = "started_date")
 	@NotBlank(message = "Boş Bırakılamaz")

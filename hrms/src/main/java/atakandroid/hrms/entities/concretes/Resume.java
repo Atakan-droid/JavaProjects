@@ -38,10 +38,8 @@ public class Resume {
 	@Column(name="id")
 	private int id;
 	
-	
-	@ManyToOne(targetEntity = Candidate.class,fetch = FetchType.LAZY)
-	@JoinColumn(name = "candidate_id",referencedColumnName = "candidate_id",nullable = false)
-	private Candidate candidate;
+	@Column(name="candidate_id")
+	private int candidateId;
 	
 	@Column(name = "github_link")
 	private String githubLink;
@@ -53,11 +51,12 @@ public class Resume {
 	private String description;
 	
 	
-	
-	@Column(name = "created_date")
+	@JsonIgnore
+	@Column(name = "created_date",nullable = true)
 	private LocalDate createdDate=LocalDate.now();
 	
-	@Column(name = "updated_date")
+	@JsonIgnore
+	@Column(name = "updated_date",nullable=true)
 	private LocalDate updatedDate;
 	
 	@Column(name = "is_active")
@@ -66,24 +65,18 @@ public class Resume {
 	
 	
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name="resume_techs",joinColumns = {@JoinColumn(name="resume_id")} 
-	,inverseJoinColumns = {@JoinColumn(name="technology_id")})
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL,mappedBy = "resume")
 	private List<ResumeTechnology> technologies;
 	
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name="resume_languages",joinColumns = {@JoinColumn(name="resume_id")} 
-	,inverseJoinColumns = {@JoinColumn(name="resume_language_id")})
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL,mappedBy ="resume" )
 	private List<ResumeLanguage> languages;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name="resume_edus",joinColumns = {@JoinColumn(name="resume_id")} 
-	,inverseJoinColumns = {@JoinColumn(name="resume_edu_id")})
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL,mappedBy = "resume")
 	private List<ResumeEducation> educations;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name="resume_job_experience",joinColumns = {@JoinColumn(name="resume_id")} 
-	,inverseJoinColumns = {@JoinColumn(name="job_experience_id")})
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL,mappedBy = "resume")
 	private List<ResumeJobExperience> jobExperiences;
+	
+	
 }

@@ -34,7 +34,7 @@ public class ResumeLanguage {
 	private int id;
 	
 	@JsonIgnore
-	@ManyToOne(targetEntity = Resume.class)
+	@ManyToOne
 	@JoinColumn(name="resume_id")
 	private Resume resume;
 	

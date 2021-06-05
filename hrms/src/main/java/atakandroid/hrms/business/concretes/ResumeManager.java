@@ -78,7 +78,7 @@ public class ResumeManager implements ResumeService {
 	@Override
 	public DataResult<List<Resume>> getByCandidateId(int candidateId) {
 		
-		   var result = this.resumeDao.getByCandidate(candidateId);
+		   var result = this.resumeDao.getByCandidateId(candidateId);
 	        return result.isEmpty()
 	                ? new ErrorDataResult<>("Özgeçmiş Bulunamadı")
 	                : new SuccessDataResult<>(result, "Bulundu");

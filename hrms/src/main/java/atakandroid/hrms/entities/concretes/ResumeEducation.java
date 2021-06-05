@@ -2,6 +2,7 @@ package atakandroid.hrms.entities.concretes;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -32,8 +33,8 @@ public class ResumeEducation {
 	@Column(name="id")
 	private int id;
 	
+	@ManyToOne
 	@JsonIgnore
-	@ManyToOne(targetEntity = Resume.class)
 	@JoinColumn(name="resume_id")
 	private Resume resume;
 	
@@ -41,9 +42,8 @@ public class ResumeEducation {
 	@NotBlank(message="Boş Geçilemez")
 	private String schoolName;
 	
-	@ManyToOne(targetEntity = Graduate.class,fetch = FetchType.LAZY)
-	@JoinColumn(name = "graduate_id",referencedColumnName = "id",nullable = false)
-	private Graduate graduate;
+	@Column(name="graduate_id")
+	private int graduateId;
 	
 	@Column(name = "started_date")
 	@NotBlank(message = "Boş Bırakılamaz")

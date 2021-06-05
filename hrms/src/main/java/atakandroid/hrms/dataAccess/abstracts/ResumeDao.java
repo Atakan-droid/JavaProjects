@@ -8,7 +8,7 @@ import atakandroid.hrms.entities.concretes.Resume;
 
 public interface ResumeDao extends JpaRepository<Resume, Integer> {
 
-	 List<Resume> getByCandidate(int candidateId);
+	 List<Resume> getByCandidateId(int candidateId);
 	 
 	 Resume getById(int id);
 	 

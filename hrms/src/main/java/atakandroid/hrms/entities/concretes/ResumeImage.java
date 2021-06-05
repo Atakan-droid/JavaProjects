@@ -26,8 +26,9 @@ public class ResumeImage {
 
 
     
-    @ManyToOne(targetEntity = Resume.class)
-    @JoinColumn(name = "resume_id")
+    @ManyToOne
+    @JsonIgnore
+	@JoinColumn(name="resume_id")
     private Resume resume;
 
 }

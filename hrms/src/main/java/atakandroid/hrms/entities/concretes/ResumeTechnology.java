@@ -31,8 +31,8 @@ public class ResumeTechnology {
 	@Column(name="id")
 	private int id;
 	
+	@ManyToOne
 	@JsonIgnore
-	@ManyToOne(targetEntity = Resume.class)
 	@JoinColumn(name="resume_id")
 	private Resume resume;
 	
