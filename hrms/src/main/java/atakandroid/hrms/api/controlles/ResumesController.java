@@ -13,6 +13,7 @@ import atakandroid.hrms.business.abstracts.ResumeService;
 import atakandroid.hrms.core.utilities.results.DataResult;
 import atakandroid.hrms.core.utilities.results.Result;
 import atakandroid.hrms.entities.concretes.Resume;
+import atakandroid.hrms.entities.dtos.ResumeDto;
 
 @RestController
 @RequestMapping("/api/resumes")

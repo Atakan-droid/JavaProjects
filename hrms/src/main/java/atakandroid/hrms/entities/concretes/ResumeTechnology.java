@@ -26,6 +26,7 @@ import lombok.NoArgsConstructor;
 public class ResumeTechnology {
 
 	@Id
+	@JsonIgnore
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;

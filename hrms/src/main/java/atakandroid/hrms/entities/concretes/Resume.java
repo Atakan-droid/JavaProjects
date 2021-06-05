@@ -33,11 +33,12 @@ import lombok.NoArgsConstructor;
 public class Resume {
 
 	@Id
+	@JsonIgnore
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@JsonIgnore
+	
 	@ManyToOne(targetEntity = Candidate.class,fetch = FetchType.LAZY)
 	@JoinColumn(name = "candidate_id",referencedColumnName = "candidate_id",nullable = false)
 	private Candidate candidate;
@@ -52,7 +53,7 @@ public class Resume {
 	private String description;
 	
 	
-	@JsonIgnore
+	
 	@Column(name = "created_date")
 	private LocalDate createdDate=LocalDate.now();
 	
@@ -70,10 +71,6 @@ public class Resume {
 	,inverseJoinColumns = {@JoinColumn(name="technology_id")})
 	private List<ResumeTechnology> technologies;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name="resume_images",joinColumns = {@JoinColumn(name="resume_id")} 
-	,inverseJoinColumns = {@JoinColumn(name="image_id")})
-	private List<ResumeImage> photos;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name="resume_languages",joinColumns = {@JoinColumn(name="resume_id")} 

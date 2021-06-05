@@ -48,5 +48,11 @@ public class CandidateManager implements CandidatesService {
 
 	}
 
+	@Override
+	public DataResult<Candidate> getById(int id) {
+		
+		return new SuccessDataResult<Candidate>(this.candidatedao.getById(id),"Getirildi");
+	}
+
 }
 

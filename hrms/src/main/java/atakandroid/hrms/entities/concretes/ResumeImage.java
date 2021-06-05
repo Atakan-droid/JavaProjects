@@ -16,18 +16,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class ResumeImage {
 
     @Id
+    @JsonIgnore
     @Column(name = "image_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @Column(name = "name")
-    private String name;
 
     @Column(name = "image_url")
     private String imageUrl;
 
 
-    @JsonIgnore
+    
     @ManyToOne(targetEntity = Resume.class)
     @JoinColumn(name = "resume_id")
     private Resume resume;

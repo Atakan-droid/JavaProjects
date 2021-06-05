@@ -47,7 +47,7 @@ public class ResumeImagesController {
 	public Result add(@RequestParam int id, @RequestParam MultipartFile filePath) throws IOException {
 		Resume resume = this.resumeService.getById(id).getData();
 		if(resume==null) {
-			return new ErrorResult("Böyle bi kullanıcı yok");
+			return new ErrorResult("Böyle bi Cv yok");
 		}
 		ResumeImage resumeImage = new ResumeImage();
 		resumeImage.setResume(resume);		
